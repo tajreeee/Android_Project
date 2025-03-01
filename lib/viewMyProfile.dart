@@ -14,7 +14,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // Plain white background for elegance
+      backgroundColor: Colors.white, 
       appBar: AppBar(
         backgroundColor: Color(0xFF1976D2),
         title: Text(
@@ -33,11 +33,11 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
           padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
           child: Column(
             children: [
-              // Profile Card with essential information
+              
               Container(
                 padding: EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
-                  color: Colors.blue[50], // Soft blue for the profile card
+                  color: Colors.blue[50], 
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
@@ -50,7 +50,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
                 ),
                 child: Column(
                   children: [
-                    // Name Display
+                    
                     Text(
                       'Jannatul Ferdous Tajree',
                       style: TextStyle(
@@ -61,7 +61,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
                       ),
                     ),
                     SizedBox(height: 5),
-                    // Degree and Year
+                  
                     Text(
                       'BSc. Engineering, 2nd Year, Software Engineering',
                       style: TextStyle(
@@ -72,7 +72,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    // University Display
+                    
                     Text(
                       'University: Shahjalal University of Science and Technology',
                       style: TextStyle(
@@ -83,7 +83,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    // Phone Number
+                    
                     Text(
                       'Phone: +1 234 567 890',
                       style: TextStyle(
@@ -98,7 +98,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
               ),
               SizedBox(height: 30),
 
-              // Skill Section - Envelope Button
+              
               ProfileEnvelopeButton(
                 title: 'Skills',
                 onPressed: () {
@@ -111,7 +111,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
               ),
               SizedBox(height: 20),
 
-              // Achievements Section - Envelope Button
+              
               ProfileEnvelopeButton(
                 title: 'Achievements',
                 onPressed: () {
@@ -124,7 +124,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
               ),
               SizedBox(height: 20),
 
-              // Contact Info Section - Envelope Button
+              
               ProfileEnvelopeButton(
                 title: 'Contact Info',
                 onPressed: () {
@@ -137,7 +137,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
               ),
               SizedBox(height: 20),
 
-              // Interests Section - Envelope Button
+              
               ProfileEnvelopeButton(
                 title: 'Interests',
                 onPressed: () {
@@ -150,34 +150,34 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
               ),
               SizedBox(height: 30),
 
-              // Social Media Links
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
                     icon: Icon(Icons.facebook, color: Colors.blue, size: 35),
                     onPressed: () {
-                      // Add functionality for Facebook link
+                      
                     },
                   ),
                   IconButton(
-                    icon: Icon(Icons.camera_alt, color: Colors.pink, size: 35), // Instagram Icon
+                    icon: Icon(Icons.camera_alt, color: Colors.pink, size: 35), 
                     onPressed: () {
-                      // Add functionality for Instagram link
+                      
                     },
                   ),
                 ],
               ),
               SizedBox(height: 30),
 
-              // Bottom Action Buttons
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Edit Profile Button
+                  
                   ElevatedButton(
                     onPressed: () {
-                      // Implement Edit Profile functionality
+                      
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('Edit Profile clicked')),
                       );
@@ -202,10 +202,10 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
                       ),
                     ),
                   ),
-                  // Log Out Button
+                  
                   ElevatedButton(
                     onPressed: () {
-                      // Implement Logout functionality
+                      
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('Logging Out...')),
                       );
@@ -241,7 +241,7 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
   }
 }
 
-// Envelope-style collapsible button widget
+
 class ProfileEnvelopeButton extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
@@ -275,7 +275,7 @@ class ProfileEnvelopeButton extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.mail_outline,
-              color: Colors.blueAccent, // Envelope icon
+              color: Colors.blueAccent, 
               size: 30,
             ),
             title: Text(

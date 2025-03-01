@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login.dart'; // Import the login screen
+import 'login.dart'; 
 
 class OpeningScreen extends StatelessWidget {
   @override
@@ -8,32 +8,32 @@ class OpeningScreen extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background Image
+          
           Image.asset(
-            'assets/Open.png', // Ensure the image is in the assets folder
+            'assets/Open.png', 
             fit: BoxFit.cover,
           ),
           
-          // "Get Started" Button in the lower-right corner
+          
           Positioned(
-            bottom: 50, // Adjust vertical position
-            right: 30,  // Adjust horizontal position
+            bottom: 50, 
+            right: 30,  
             child: ElevatedButton(
               onPressed: () {
-                // Navigate to Login Page
+                
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 16, 6, 62), // White button
-                foregroundColor: const Color.fromARGB(255, 216, 216, 216), // Text color
+                backgroundColor: const Color.fromARGB(255, 16, 6, 62), 
+                foregroundColor: const Color.fromARGB(255, 216, 216, 216), 
                 padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
-                elevation: 5, // Soft shadow effect
+                elevation: 5, 
               ),
               child: Text(
                 "Get Started",

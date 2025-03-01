@@ -11,15 +11,15 @@ class _SupportPageState extends State<SupportPage> {
 
   void _submitIssue() {
     setState(() {
-      _isSubmitted = true; // Show the confirmation message after submission
+      _isSubmitted = true; 
     });
 
-    // Clear the text field after submission
+    
     Future.delayed(Duration(seconds: 2), () {
       setState(() {
         _isSubmitted = false;
       });
-      _issueController.clear(); // Clear the input field
+      _issueController.clear();
     });
   }
 
@@ -34,14 +34,14 @@ class _SupportPageState extends State<SupportPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Title Text
+            
             Text(
               'Describe your issue or problem below:',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
 
-            // Issue TextField (big writing area)
+            
             TextField(
               controller: _issueController,
               maxLines: 10,
@@ -59,7 +59,7 @@ class _SupportPageState extends State<SupportPage> {
               child: ElevatedButton(
                 onPressed: _submitIssue,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF2196F3), // Correct way to set button color
+                  backgroundColor: Color(0xFF2196F3), 
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
@@ -78,7 +78,7 @@ class _SupportPageState extends State<SupportPage> {
             ),
             SizedBox(height: 20),
 
-            // Confirmation message
+            
             if (_isSubmitted)
               Text(
                 'Your problem has been submitted, it will be resolved soon.',

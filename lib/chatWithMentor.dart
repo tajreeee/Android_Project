@@ -12,7 +12,7 @@ class _ChatWithMentorPageState extends State<ChatWithMentorPage> {
   TextEditingController _messageController = TextEditingController();
   List<Map<String, String>> messages = [];
 
-  // Default reply from mentor
+  
   String mentorReply = "Sure, Tell me if you need any guidance about applying to universities";
 
   @override
@@ -26,7 +26,7 @@ class _ChatWithMentorPageState extends State<ChatWithMentorPage> {
         children: [
           Expanded(
             child: ListView.builder(
-              reverse: true, // Display messages from the bottom
+              reverse: true, 
               itemCount: messages.length,
               itemBuilder: (context, index) {
                 return Padding(
@@ -81,13 +81,13 @@ class _ChatWithMentorPageState extends State<ChatWithMentorPage> {
     );
   }
 
-  // Send a message and mentor's reply
+ 
   void _sendMessage() {
     if (_messageController.text.isNotEmpty) {
       setState(() {
-        // Add user message
+       
         messages.insert(0, {'sender': 'user', 'text': _messageController.text});
-        // Add mentor's reply
+        
         messages.insert(0, {'sender': 'mentor', 'text': mentorReply});
         _messageController.clear();
       });

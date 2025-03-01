@@ -19,7 +19,7 @@ class NotificationPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
         child: ListView(
           children: [
-            // Notification 1
+            
             NotificationCard(
               title: 'New University Scholarship Available!',
               description:
@@ -27,14 +27,14 @@ class NotificationPage extends StatelessWidget {
               timestamp: 'Feb 26, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 2
+            
             NotificationCard(
               title: 'University Application Deadline Approaching!',
               description: 'Don’t miss the upcoming university application deadline.',
               timestamp: 'Feb 25, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 3
+            
             NotificationCard(
               title: 'Important: Profile Update Required',
               description:
@@ -42,28 +42,28 @@ class NotificationPage extends StatelessWidget {
               timestamp: 'Feb 24, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 4
+            
             NotificationCard(
               title: 'New Event: Online Career Fair!',
               description: 'Join our virtual career fair event to connect with top employers.',
               timestamp: 'Feb 23, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 5
+            
             NotificationCard(
               title: 'New Courses Available at Top Universities!',
               description: 'Check out the latest courses available for students in your field.',
               timestamp: 'Feb 22, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 6
+            
             NotificationCard(
               title: 'University Rankings Update',
               description: 'The latest rankings of universities have been updated. Check them out!',
               timestamp: 'Feb 21, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 7
+            
             NotificationCard(
               title: 'Important: FAFSA Submission Deadline',
               description:
@@ -71,14 +71,14 @@ class NotificationPage extends StatelessWidget {
               timestamp: 'Feb 20, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 8
+          
             NotificationCard(
               title: 'Reminder: Attend the Campus Tour Webinar!',
               description: 'Get an inside look at campus life through our live webinar.',
               timestamp: 'Feb 19, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 9
+            
             NotificationCard(
               title: 'New Internship Opportunities Available!',
               description:
@@ -86,7 +86,7 @@ class NotificationPage extends StatelessWidget {
               timestamp: 'Feb 18, 2025',
             ),
             SizedBox(height: 16),
-            // Notification 10
+            
             NotificationCard(
               title: 'Scholarship Application Tips and Guidelines',
               description: 'Read our expert tips on how to increase your chances of winning scholarships.',

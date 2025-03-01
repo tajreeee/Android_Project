@@ -16,23 +16,23 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background image
+          
           Image.asset(
             'assets/login.png',
-            fit: BoxFit.cover, // Cover the entire screen
+            fit: BoxFit.cover, 
           ),
-          // Overlay for better text visibility
+          
           Container(
-            color: Colors.black.withOpacity(0.5), // Black overlay with opacity
+            color: Colors.black.withOpacity(0.5), 
           ),
-          // Centered login form
+          
           Center(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // App name styled at the top
+                  
                   Text(
                     '',
                     style: TextStyle(
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 40),
 
-                  // Username Field with stylish decoration
+                  
                   TextField(
                     controller: _usernameController,
                     style: TextStyle(color: Colors.white),
@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 20),
 
-                  // Password Field with stylish decoration
+                  
                   TextField(
                     controller: _passwordController,
                     obscureText: true,
@@ -79,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: 40),
 
-                  // Login Button with stylish design
+                  
                   ElevatedButton(
                     onPressed: () {
                       if (_usernameController.text.isNotEmpty &&
@@ -95,8 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white, // Updated from primary
-                      foregroundColor: Color(0xFF2196F3), // Updated from onPrimary
+                      backgroundColor: Colors.white, 
+                      foregroundColor: Color(0xFF2196F3), 
                       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 100),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),

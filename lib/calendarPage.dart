@@ -7,7 +7,7 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarPageState extends State<CalendarPage> {
-  // Define a map of important dates with their respective deadline information
+  
   final Map<DateTime, String> _importantDates = {
     DateTime(2025, 2, 10): "Application Deadline for XYZ University",
     DateTime(2025, 2, 15): "Scholarship Deadline for ABC Scholarship",
@@ -15,10 +15,10 @@ class _CalendarPageState extends State<CalendarPage> {
     DateTime(2025, 3, 5): "Early Bird Application for GHI University",
     DateTime(2025, 3, 18): "Final Submission Deadline for JKL Scholarship",
     DateTime(2025, 3, 25): "Application Deadline for MNO University",
-    // Add more important dates as needed
+    
   };
 
-  // Function to get the deadline information for a selected date
+  
   String getDeadlineInfo(DateTime date) {
     DateTime formattedDate = DateTime(date.year, date.month, date.day);
     return _importantDates[formattedDate] ?? "No deadlines on this day.";
@@ -38,7 +38,7 @@ class _CalendarPageState extends State<CalendarPage> {
             firstDay: DateTime(2025, 1, 1),
             lastDay: DateTime(2025, 12, 31),
             eventLoader: (day) {
-              // Return events for dates that are marked as important
+              
               DateTime formattedDate = DateTime(day.year, day.month, day.day);
               if (_importantDates.containsKey(formattedDate)) {
                 return [_importantDates[formattedDate]!];
@@ -46,25 +46,25 @@ class _CalendarPageState extends State<CalendarPage> {
               return [];
             },
             calendarStyle: CalendarStyle(
-              // Customization of calendar styles
+              
               todayDecoration: BoxDecoration(
                 color: Colors.blueAccent,
                 shape: BoxShape.circle,
               ),
               selectedDecoration: BoxDecoration(
-                color: Colors.transparent, // No blue circle on selection
+                color: Colors.transparent, 
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.red, width: 2), // Red border for selected date
+                border: Border.all(color: Colors.red, width: 2), 
               ),
-              // Marked dates with red circles
+              
               markerDecoration: BoxDecoration(
                 color: Colors.red,
                 shape: BoxShape.circle,
               ),
-              // Use a large circle for important dates
+              
               defaultDecoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.transparent), // Transparent default decoration
+                border: Border.all(color: Colors.transparent), 
               ),
             ),
             headerStyle: HeaderStyle(
@@ -74,7 +74,7 @@ class _CalendarPageState extends State<CalendarPage> {
               rightChevronIcon: Icon(Icons.chevron_right),
             ),
             onDaySelected: (selectedDay, focusedDay) {
-              // Display deadline info when a date is selected
+              
               final deadlineInfo = getDeadlineInfo(selectedDay);
               showDialog(
                 context: context,

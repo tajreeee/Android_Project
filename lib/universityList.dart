@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UniversityListPage extends StatelessWidget {
-  // Sample data for the top 20 universities in the USA
+  
   final List<String> universities = [
     "Harvard University",
     "Stanford University",
@@ -48,8 +48,7 @@ class UniversityListPage extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                // Navigate to the university detail page
-                // You can modify this to navigate to a detailed page for each university
+                
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -98,7 +97,7 @@ class UniversityDetailPage extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            // Add more detailed information about the university here
+            
           ],
         ),
       ),

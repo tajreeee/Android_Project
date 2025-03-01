@@ -124,7 +124,7 @@ class ScholarshipList extends StatelessWidget {
               ),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
-                // Navigate to scholarship details page when a list item is tapped.
+                
                 Navigator.push(
                   context,
                   MaterialPageRoute(
