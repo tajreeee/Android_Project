@@ -1,20 +1,20 @@
-<<<<<<< HEAD
-# androidproject
+USA UNI EXPLORER
+USA UNI EXPLORER is a mobile application developed using Flutter designed to assist students who aspire to study in the United States. It helps them explore top universities, scholarships, and provides step-by-step guidance on the F1 Visa process. The app also integrates Firebase Authentication for secure user sign-ups and logins.
 
-A new Flutter project.
+Features
+Firebase Authentication: Secure sign-up and sign-in functionality using Firebase Authentication.
+University Listings: Explore a curated list of top U.S. universities with detailed information.
+Scholarships: Access scholarships available for international students.
+Visa Guide: Step-by-step guidance on the F1 visa process, including documents and interview preparation.
+User Profile: Create and manage a personalized profile.
+Mentorship: Connect with mentors who can offer guidance throughout the application and visa process.
+Notifications: Receive important announcements and deadlines.
+Deadline Calendar: Keep track of university application and scholarship deadlines.
 
-## Getting Started
+Technologies Used
+Flutter: Framework for building natively compiled applications for mobile.
+Firebase: Real-time database and authentication services.
+Firebase Authentication: Secure user authentication services for sign-up and sign-in.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# Android_Project
->>>>>>> ff946095159096b6a2cc5d075d3a2035a8b19a73
+Made by Tajree
+Software Engineering Student at Shahjalal University of Science and Technology
