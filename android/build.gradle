@@ -3,6 +3,12 @@ allprojects {
         google()
         mavenCentral()
     }
+
+    dependencies {
+        // Add this line to the dependencies block
+        classpath 'com.google.gms:google-services:4.3.10'  // Ensure this is the latest version
+        classpath "com.google.gms.google-services 4.4.2" 
+    }
 }
 
 rootProject.buildDir = "../build"
