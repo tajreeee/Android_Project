@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'sign_up_page.dart';
 import 'form_container_widget.dart';
 import 'toast.dart';
 import 'firebase_auth_services.dart';
+import 'forgot_password_page.dart'; // Import Forgot Password Page
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,9 +16,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool _isSigning = false;
   final FirebaseAuthService _auth = FirebaseAuthService();
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
@@ -38,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/log_in.jpg"), // Use the log in.jpg image
+            image: AssetImage("assets/log_in.jpg"), // Background Image
             fit: BoxFit.cover,
           ),
         ),
@@ -48,7 +46,6 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Remove middle "Login" text
                 SizedBox(height: 30),
 
                 // Email Field
@@ -57,9 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: "Email",
                   isPasswordField: false,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
 
                 // Password Field
                 FormContainerWidget(
@@ -67,22 +62,39 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: "Password",
                   isPasswordField: true,
                 ),
-                SizedBox(
-                  height: 30,
-                ),
+                SizedBox(height: 10),
 
-                // Transparent and blurred Login Button
+                // Forgot Password Button
                 GestureDetector(
                   onTap: () {
-                    _signIn();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
+                    );
                   },
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 30),
+
+                // Login Button
+                GestureDetector(
+                  onTap: _signIn,
                   child: Container(
                     width: double.infinity,
                     height: 45,
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4), // Transparent background
+                      color: Colors.black.withOpacity(0.4),
                       borderRadius: BorderRadius.circular(10),
-                      backgroundBlendMode: BlendMode.darken, // Darken background slightly
+                      backgroundBlendMode: BlendMode.darken,
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.3),
@@ -93,9 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: Center(
                       child: _isSigning
-                          ? CircularProgressIndicator(
-                              color: Colors.white,
-                            )
+                          ? CircularProgressIndicator(color: Colors.white)
                           : Text(
                               "Login",
                               style: TextStyle(
@@ -106,19 +116,15 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
 
-                // Sign Up text and button with transparent effect
+                // Sign Up Section
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Don't have an account?", style: TextStyle(color: Colors.white)),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    SizedBox(width: 5),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushAndRemoveUntil(
@@ -150,8 +156,8 @@ class _LoginPageState extends State<LoginPage> {
       _isSigning = true;
     });
 
-    String email = _emailController.text;
-    String password = _passwordController.text;
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
 
     User? user = await _auth.signInWithEmailAndPassword(email, password);
 
@@ -160,10 +166,10 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     if (user != null) {
-      showToast(message: "User is successfully signed in");
+      showToast(message: "User successfully signed in");
       Navigator.pushNamed(context, "/home");
     } else {
-      showToast(message: "Some error occurred");
+      showToast(message: "Error signing in");
     }
   }
 }
