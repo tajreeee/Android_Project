@@ -16,7 +16,7 @@ Future main() async {
         appId: "1:540215271818:web:8b22d4aee01acdce862873",
         messagingSenderId: "540215271818",
         projectId: "flutter-firebase-9c136",
-        // Your web Firebase config options
+        
       ),
     );
   } else {
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Firebase',
       routes: {
         '/': (context) => SplashScreen(
-          // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
+          
           child: LoginPage(),
         ),
         '/login': (context) => LoginPage(),

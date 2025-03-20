@@ -1,105 +1,157 @@
 import 'package:flutter/material.dart';
 
 class UniversityListPage extends StatelessWidget {
-  
-  final List<String> universities = [
-    "Harvard University",
-    "Stanford University",
-    "Massachusetts Institute of Technology (MIT)",
-    "California Institute of Technology (Caltech)",
-    "University of Chicago",
-    "Princeton University",
-    "Columbia University",
-    "Yale University",
-    "University of Pennsylvania",
-    "California University Berkeley",
-    "University of California Los Angeles (UCLA)",
-    "University of Michigan Ann Arbor",
-    "Cornell University",
-    "University of Washington",
-    "Duke University",
-    "Northwestern University",
-    "University of California San Diego (UCSD)",
-    "University of Southern California (USC)",
-    "Johns Hopkins University",
-    "New York University (NYU)",
+
+  final List<Map<String, String>> universities = [
+    {"rank": "1", "name": "Harvard University"},
+    {"rank": "2", "name": "Stanford University"},
+    {"rank": "3", "name": "Massachusetts Institute of Technology (MIT)"},
+    {"rank": "4", "name": "California Institute of Technology (Caltech)"},
+    {"rank": "5", "name": "University of Chicago"},
+    {"rank": "6", "name": "Princeton University"},
+    {"rank": "7", "name": "Columbia University"},
+    {"rank": "8", "name": "Yale University"},
+    {"rank": "9", "name": "University of Pennsylvania"},
+    {"rank": "10", "name": "University of California, Berkeley"},
+    {"rank": "11", "name": "University of California, Los Angeles (UCLA)"},
+    {"rank": "12", "name": "University of Michigan, Ann Arbor"},
+    {"rank": "13", "name": "Cornell University"},
+    {"rank": "14", "name": "University of Washington"},
+    {"rank": "15", "name": "Duke University"},
+    {"rank": "16", "name": "Northwestern University"},
+    {"rank": "17", "name": "University of California, San Diego (UCSD)"},
+    {"rank": "18", "name": "University of Southern California (USC)"},
+    {"rank": "19", "name": "Johns Hopkins University"},
+    {"rank": "20", "name": "New York University (NYU)"},
+    {"rank": "21", "name": "University of California, San Francisco (UCSF)"},
+    {"rank": "22", "name": "University of California, Irvine (UCI)"},
+    {"rank": "23", "name": "Brown University"},
+    {"rank": "24", "name": "University of Texas at Austin"},
+    {"rank": "25", "name": "University of California, Davis (UC Davis)"},
+    {"rank": "26", "name": "University of Wisconsin-Madison"},
+    {"rank": "27", "name": "University of Illinois Urbana-Champaign"},
+    {"rank": "28", "name": "University of Minnesota Twin Cities"},
+    {"rank": "29", "name": "University of Miami"},
+    {"rank": "30", "name": "Boston University"},
+    {"rank": "31", "name": "University of Florida"},
+    {"rank": "32", "name": "Ohio State University"},
+    {"rank": "33", "name": "Indiana University Bloomington"},
+    {"rank": "34", "name": "University of Pittsburgh"},
+    {"rank": "35", "name": "University of Maryland, College Park"},
+    {"rank": "36", "name": "University of North Carolina at Chapel Hill"},
+    {"rank": "37", "name": "University of Connecticut"},
+    {"rank": "38", "name": "University of Virginia"},
+    {"rank": "39", "name": "University of Washington, St. Louis"},
+    {"rank": "40", "name": "Michigan State University"},
+    {"rank": "41", "name": "Purdue University"},
+    {"rank": "42", "name": "Pennsylvania State University"},
+    {"rank": "43", "name": "University of Arizona"},
+    {"rank": "44", "name": "University of Colorado Boulder"},
+    {"rank": "45", "name": "University of Georgia"},
+    {"rank": "46", "name": "University of Delaware"},
+    {"rank": "47", "name": "University of Iowa"},
+    {"rank": "48", "name": "University of Oregon"},
+    {"rank": "49", "name": "University of Kansas"},
+    {"rank": "50", "name": "University of Miami"},
+    {"rank": "51", "name": "University of South Carolina"},
+    {"rank": "52", "name": "Michigan State University"},
+    {"rank": "53", "name": "University of Alabama"},
+    {"rank": "54", "name": "University of Kentucky"},
+    {"rank": "55", "name": "University of Tennessee"},
+    {"rank": "56", "name": "University of Oklahoma"},
+    {"rank": "57", "name": "University of Arkansas"},
+    {"rank": "58", "name": "Louisiana State University"},
+    {"rank": "59", "name": "Florida State University"},
+    {"rank": "60", "name": "University of Nevada, Las Vegas"},
+    {"rank": "61", "name": "University of Rhode Island"},
+    {"rank": "62", "name": "Temple University"},
+    {"rank": "63", "name": "University of Missouri"},
+    {"rank": "64", "name": "University of Massachusetts Amherst"},
+    {"rank": "65", "name": "University of Wyoming"},
+    {"rank": "66", "name": "University of Vermont"},
+    {"rank": "67", "name": "University of Hawaii Manoa"},
+    {"rank": "68", "name": "University of Montana"},
+    {"rank": "69", "name": "University of New Hampshire"},
+    {"rank": "70", "name": "University of Idaho"},
+    {"rank": "71", "name": "University of North Dakota"},
+    {"rank": "72", "name": "University of Mississippi"},
+    {"rank": "73", "name": "University of Tulsa"},
+    {"rank": "74", "name": "University of Kansas"},
+    {"rank": "75", "name": "University of Nevada"},
+    {"rank": "76", "name": "University of Texas at San Antonio"},
+    {"rank": "77", "name": "University of Central Florida"},
+    {"rank": "78", "name": "University of California, Riverside"},
+    {"rank": "79", "name": "University of Wisconsin-Milwaukee"},
+    {"rank": "80", "name": "University of Michigan-Flint"},
+    {"rank": "81", "name": "University of New Mexico"},
+    {"rank": "82", "name": "University of Illinois at Chicago"},
+    {"rank": "83", "name": "University of Tennessee Knoxville"},
+    {"rank": "84", "name": "University of Arkansas Little Rock"},
+    {"rank": "85", "name": "University of Montana"},
+    {"rank": "86", "name": "University of South Dakota"},
+    {"rank": "87", "name": "University of Utah"},
+    {"rank": "88", "name": "University of Miami"},
+    {"rank": "89", "name": "University of Hawaii"},
+    {"rank": "90", "name": "University of Oklahoma Norman"},
+    {"rank": "91", "name": "University of Denver"},
+    {"rank": "92", "name": "University of Kentucky Lexington"},
+    {"rank": "93", "name": "University of Pittsburgh at Greensburg"},
+    {"rank": "94", "name": "University of Maine"},
+    {"rank": "95", "name": "University of Mississippi Oxford"},
+    {"rank": "96", "name": "University of Montana Missoula"},
+    {"rank": "97", "name": "University of Nevada Reno"},
+    {"rank": "98", "name": "University of New York"},
+    {"rank": "99", "name": "University of Kansas Lawrence"},
+    {"rank": "100", "name": "University of California, Santa Barbara"}
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Top 20 Universities of USA"),
+        title: Text("Top 100 Universities of USA", style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Color(0xFF2196F3),
+        elevation: 4,
       ),
       body: ListView.builder(
+        padding: EdgeInsets.all(12.0),
         itemCount: universities.length,
         itemBuilder: (context, index) {
           return Card(
             elevation: 5,
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
             child: ListTile(
-              contentPadding: EdgeInsets.all(10),
-              title: Text(
-                universities[index],
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onTap: () {
-                
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UniversityDetailPage(
-                      universityName: universities[index],
+              contentPadding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 20.0),
+              title: Row(
+                children: [
+                  Text(
+                    "${universities[index]["rank"]}. ",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                );
+                  Expanded(
+                    child: Text(
+                      universities[index]["name"]!,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              onTap: () {
+                // You can navigate to a detailed page or other functionality here
               },
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class UniversityDetailPage extends StatelessWidget {
-  final String universityName;
-
-  UniversityDetailPage({required this.universityName});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(universityName),
-        backgroundColor: Color(0xFF2196F3),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              universityName,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Detailed information about $universityName.',
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            
-          ],
-        ),
       ),
     );
   }

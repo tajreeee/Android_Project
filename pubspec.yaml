@@ -69,9 +69,20 @@ flutter:
     - assets/log_in.jpg
     - assets/reserve-3057904_1280.png
     - assets/Open.png
-    - assets/home.png
+    - assets/home.jpg
     - assets/books-5937716_1280.jpg
     - assets/splash.jpg
+    - assets/visa.jpg
+    - assets/step1.jpg
+    - assets/step2.jpg
+    - assets/step3.jpg
+    - assets/step4.jpg
+    - assets/step5.jpg
+    - assets/step6.jpg
+    - assets/step7.jpg
+    - assets/step8.jpg
+    - assets/blur.jpg
+    - assets/splash2.jpg
 
 
   # The following line ensures that the Material Icons font is

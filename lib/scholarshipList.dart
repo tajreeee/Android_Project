@@ -27,12 +27,6 @@ class ScholarshipList extends StatelessWidget {
       'details': 'Provides funding for graduate study at Stanford, as well as leadership development opportunities.'
     },
     {
-      'title': 'The United Nations International School (UNIS) Scholarships',
-      'level': 'Undergraduate (BSc), Master\'s',
-      'eligibility': 'International students.',
-      'details': 'Full and partial scholarships for international students to attend university-level studies.'
-    },
-    {
       'title': 'The AAUW International Fellowships',
       'level': 'Master\'s, PhD',
       'eligibility': 'Women who are not U.S. citizens or permanent residents.',
@@ -75,12 +69,6 @@ class ScholarshipList extends StatelessWidget {
       'details': 'Fully funded scholarships covering tuition fees, living costs, and airfare.'
     },
     {
-      'title': 'The MEXT (Monbukagakusho) Scholarship',
-      'level': 'Undergraduate, Master’s, PhD',
-      'eligibility': 'International students from various countries.',
-      'details': 'A Japanese government scholarship for students wishing to study in the United States.'
-    },
-    {
       'title': 'The Global Scholarship Programme at the University of California, Berkeley',
       'level': 'Master’s, PhD',
       'eligibility': 'International students with strong academic and leadership records.',
@@ -91,6 +79,120 @@ class ScholarshipList extends StatelessWidget {
       'level': 'Master’s, PhD',
       'eligibility': 'International students worldwide.',
       'details': 'Covers full tuition, living stipend, and additional support.'
+    },
+    {
+      'title': 'The AAUW American Fellowships',
+      'level': 'Master’s, PhD, Postdoctoral',
+      'eligibility': 'Women who are U.S. citizens or permanent residents.',
+      'details': 'Supports U.S. women pursuing full-time graduate or postdoctoral study in the United States.'
+    },
+    {
+      'title': 'The U.S. Department of Homeland Security (DHS) Scholarship Program',
+      'level': 'Undergraduate, Master’s',
+      'eligibility': 'U.S. citizens or permanent residents studying in cybersecurity and related fields.',
+      'details': 'Offers scholarships for students pursuing degrees in cybersecurity and related disciplines to work in U.S. government agencies.'
+    },
+    {
+      'title': 'The Truman Scholarship',
+      'level': 'Undergraduate (Junior year)',
+      'eligibility': 'U.S. citizens with a record of leadership, public service, and commitment to working in public service.',
+      'details': 'Provides up to 30,000 for graduate school to students with a commitment to a career in public service.'
+    },
+    {
+      'title': 'The National Science Foundation (NSF) Graduate Research Fellowship Program',
+      'level': 'Master’s, PhD',
+      'eligibility': 'U.S. citizens, nationals, or permanent residents.',
+      'details': 'Provides financial support to graduate students in STEM disciplines for their research and studies in the U.S.'
+    },
+    {
+      'title': 'The Barry Goldwater Scholarship and Excellence in Education Program',
+      'level': 'Undergraduate (Sophomore or Junior)',
+      'eligibility': 'U.S. citizens or permanent residents pursuing degrees in STEM fields.',
+      'details': 'Awards scholarships to students who are committed to a career in STEM research.'
+    },
+    {
+      'title': 'The Coca-Cola Scholars Program',
+      'level': 'Undergraduate (Senior year of high school)',
+      'eligibility': 'U.S. high school seniors.',
+      'details': 'Awards scholarships to exceptional high school seniors who demonstrate leadership, service, and commitment to making a significant impact.'
+    },
+    {
+      'title': 'The United Negro College Fund (UNCF) Scholarships',
+      'level': 'Undergraduate, Graduate',
+      'eligibility': 'U.S. students of African descent.',
+      'details': 'Offers financial support to students attending historically black colleges and universities (HBCUs).'
+    },
+    {
+      'title': 'The National Merit Scholarship Program',
+      'level': 'Undergraduate (High School Seniors)',
+      'eligibility': 'High school seniors in the United States who have shown outstanding academic achievement.',
+      'details': 'Merit-based scholarships for U.S. students based on standardized test scores and academic performance.'
+    },
+    {
+      'title': 'The McDonald\'s HACER National Scholarship',
+      'level': 'Undergraduate',
+      'eligibility': 'U.S. students of Hispanic heritage.',
+      'details': 'Provides scholarships to Hispanic students who demonstrate financial need and academic success.'
+    },
+    {
+      'title': 'The Dell Scholars Program',
+      'level': 'Undergraduate',
+      'eligibility': 'U.S. students who demonstrate a need for financial assistance and show perseverance.',
+      'details': 'Offers scholarships and resources for students from underrepresented communities pursuing a post-secondary education.'
+    },
+    {
+      'title': 'The Jack Kent Cooke Foundation Scholarship',
+      'level': 'Undergraduate, Graduate',
+      'eligibility': 'U.S. citizens who demonstrate exceptional academic achievement and financial need.',
+      'details': 'Offers funding for college and graduate school for high-achieving students from low-income backgrounds.'
+    },
+    {
+      'title': 'The Reagan Foundation Scholarship Program',
+      'level': 'Undergraduate',
+      'eligibility': 'U.S. high school seniors with leadership skills, academic excellence, and a commitment to public service.',
+      'details': 'Provides scholarships to students who demonstrate leadership and community involvement.'
+    },
+    {
+      'title': 'The National Association of Black Journalists (NABJ) Scholarships',
+      'level': 'Undergraduate, Graduate',
+      'eligibility': 'African American students pursuing degrees in journalism and media-related fields.',
+      'details': 'Offers scholarships for students pursuing careers in journalism.'
+    },
+    {
+      'title': 'The National Academy of Engineering (NAE) Grand Challenge Scholars Program',
+      'level': 'Undergraduate, Graduate',
+      'eligibility': 'U.S. citizens pursuing engineering degrees.',
+      'details': 'Supports students pursuing innovative solutions to global engineering challenges.'
+    },
+    {
+      'title': 'The American Indian College Fund Scholarships',
+      'level': 'Undergraduate, Graduate',
+      'eligibility': 'U.S. Native American students.',
+      'details': 'Provides scholarships for Native American students pursuing higher education in the U.S.'
+    },
+    {
+      'title': 'The American Society of Engineers (ASEE) Scholarships',
+      'level': 'Undergraduate, Graduate',
+      'eligibility': 'U.S. students pursuing engineering degrees.',
+      'details': 'Offers scholarships for engineering students with a focus on diversity and innovation in the field.'
+    },
+    {
+      'title': 'The Horatio Alger Scholarship Program',
+      'level': 'Undergraduate (High School Seniors)',
+      'eligibility': 'U.S. students who demonstrate financial need and have overcome adversity.',
+      'details': 'Provides scholarships to students who have demonstrated integrity, perseverance, and hard work in overcoming personal obstacles.'
+    },
+    {
+      'title': 'The Bill and Melinda Gates Foundation Scholarship Program',
+      'level': 'Undergraduate, Graduate',
+      'eligibility': 'U.S. students with financial need.',
+      'details': 'Supports students pursuing higher education in the U.S. with a focus on overcoming social and economic challenges.'
+    },
+    {
+      'title': 'The Nike Eileen Fisher Scholarship Program',
+      'level': 'Undergraduate',
+      'eligibility': 'Female U.S. high school seniors pursuing a degree in business, technology, or the arts.',
+      'details': 'Provides funding for college education to young women committed to making a difference in the world.'
     }
   ];
 
@@ -98,7 +200,7 @@ class ScholarshipList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Scholarships List'),
+        title: Text('USA Scholarships List'),
         backgroundColor: Color(0xFF2196F3),
       ),
       body: ListView.builder(
@@ -115,66 +217,16 @@ class ScholarshipList extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Level: ${scholarships[index]['level']}'),
-                  Text('Eligibility: ${scholarships[index]['eligibility']}'),
-                ],
+              subtitle: Text(
+                'Level: ${scholarships[index]['level']} \nEligibility: ${scholarships[index]['eligibility']} \nDetails: ${scholarships[index]['details']}',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ScholarshipInfo(
-                      scholarship: scholarships[index],
-                    ),
-                  ),
-                );
-              },
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class ScholarshipInfo extends StatelessWidget {
-  final Map<String, String> scholarship;
-
-  ScholarshipInfo({required this.scholarship});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(scholarship['title']!),
-        backgroundColor: Color(0xFF2196F3),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Level: ${scholarship['level']}',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Eligibility: ${scholarship['eligibility']}',
-              style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Details: ${scholarship['details']}',
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
-        ),
       ),
     );
   }

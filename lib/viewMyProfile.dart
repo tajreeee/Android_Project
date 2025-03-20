@@ -1,20 +1,38 @@
 import 'package:flutter/material.dart';
 
 class ViewMyProfilePage extends StatefulWidget {
+  final String userEmail;  // Email passed from login screen
+
+  ViewMyProfilePage({required this.userEmail});
+
   @override
   _ViewMyProfilePageState createState() => _ViewMyProfilePageState();
 }
 
 class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
-  bool showSkills = false;
-  bool showAchievements = false;
-  bool showContactInfo = false;
-  bool showInterests = false;
+  bool isEditing = false; // Flag to switch between view and edit mode
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController skillsController = TextEditingController();
+  TextEditingController achievementsController = TextEditingController();
+  TextEditingController interestsController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize controllers with current data
+    nameController.text = 'Jannatul Ferdous Tajree'; // Example default name
+    phoneController.text = '+1 234 567 890'; // Example default phone
+    skillsController.text = 'Flutter, Dart, Python, Java, C++, SQL';
+    achievementsController.text = 'Champion at XYZ Hackathon';
+    interestsController.text = 'Traveling, Coding, Playing Chess, Reading Tech Blogs';
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, 
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFF1976D2),
         title: Text(
@@ -33,280 +51,171 @@ class _ViewMyProfilePageState extends State<ViewMyProfilePage> {
           padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
           child: Column(
             children: [
-              
-              Container(
-                padding: EdgeInsets.all(20.0),
-                decoration: BoxDecoration(
-                  color: Colors.blue[50], 
+              // Profile Information Card
+              Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      spreadRadius: 3,
-                      blurRadius: 6,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
                 ),
-                child: Column(
-                  children: [
-                    
-                    Text(
-                      'Jannatul Ferdous Tajree',
-                      style: TextStyle(
-                        color: Colors.blue[800],
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      
+                      SizedBox(height: 20),
+                      TextFormField(
+                        controller: nameController,
+                        enabled: isEditing,
+                        style: TextStyle(
+                          color: isEditing ? Colors.black : Colors.black,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'Full Name',
+                          prefixIcon: Icon(Icons.person),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 5),
-                  
-                    Text(
-                      'BSc. Engineering, 2nd Year, Software Engineering',
-                      style: TextStyle(
-                        color: Colors.blue[700],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Roboto',
+                      SizedBox(height: 10),
+                      TextFormField(
+                        controller: phoneController,
+                        enabled: isEditing,
+                        style: TextStyle(
+                          color: isEditing ? Colors.black : Colors.black,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'Phone',
+                          prefixIcon: Icon(Icons.phone),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    
-                    Text(
-                      'University: Shahjalal University of Science and Technology',
-                      style: TextStyle(
-                        color: Colors.blue[700],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Roboto',
+                      SizedBox(height: 10),
+                      TextFormField(
+                        controller: skillsController,
+                        enabled: isEditing,
+                        style: TextStyle(
+                          color: isEditing ? Colors.black : Colors.black,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'Skills',
+                          prefixIcon: Icon(Icons.code),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 10),
-                    
-                    Text(
-                      'Phone: +1 234 567 890',
-                      style: TextStyle(
-                        color: Colors.blue[700],
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Roboto',
+                      SizedBox(height: 10),
+                      TextFormField(
+                        controller: achievementsController,
+                        enabled: isEditing,
+                        style: TextStyle(
+                          color: isEditing ? Colors.black : Colors.black,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'Achievements',
+                          //prefixIcon: Icon(Icons.trophy),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 10),
+                      TextFormField(
+                        controller: interestsController,
+                        enabled: isEditing,
+                        style: TextStyle(
+                          color: isEditing ? Colors.black : Colors.black,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'Interests',
+                          prefixIcon: Icon(Icons.interests),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              SizedBox(height: 30),
-
-              
-              ProfileEnvelopeButton(
-                title: 'Skills',
+              SizedBox(height: 20),
+              // Edit/Save Button
+              ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    showSkills = !showSkills;
+                    isEditing = !isEditing;
                   });
                 },
-                showContent: showSkills,
-                content: 'Flutter, Dart, Python, Java, C++, SQL, Git, Android Development',
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: Text(
+                  isEditing ? 'Save Profile' : 'Edit Profile',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
               ),
               SizedBox(height: 20),
-
-              
-              ProfileEnvelopeButton(
-                title: 'Achievements',
+              // Log Out Button
+              ElevatedButton(
                 onPressed: () {
-                  setState(() {
-                    showAchievements = !showAchievements;
-                  });
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Logging Out...')),
+                  );
+                  // Navigate to login screen after logout
+                  Navigator.pushReplacementNamed(context, '/login');
                 },
-                showContent: showAchievements,
-                content: '1. Champion at XYZ Hackathon',
-              ),
-              SizedBox(height: 20),
-
-              
-              ProfileEnvelopeButton(
-                title: 'Contact Info',
-                onPressed: () {
-                  setState(() {
-                    showContactInfo = !showContactInfo;
-                  });
-                },
-                showContent: showContactInfo,
-                content: 'Email: jannatul@gmail.com\nLinkedIn: linkedin.com/in/jannatul',
-              ),
-              SizedBox(height: 20),
-
-              
-              ProfileEnvelopeButton(
-                title: 'Interests',
-                onPressed: () {
-                  setState(() {
-                    showInterests = !showInterests;
-                  });
-                },
-                showContent: showInterests,
-                content: 'Traveling, Coding, Playing Chess, Reading Tech Blogs',
-              ),
-              SizedBox(height: 30),
-
-              
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.facebook, color: Colors.blue, size: 35),
-                    onPressed: () {
-                      
-                    },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.red,
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.camera_alt, color: Colors.pink, size: 35), 
-                    onPressed: () {
-                      
-                    },
-                  ),
-                ],
+                ),
+                child: Text(
+                  'Log Out',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
               ),
-              SizedBox(height: 30),
-
-              
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Edit Profile clicked')),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color(0xFF1976D2),
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      shadowColor: Colors.blueAccent,
-                      elevation: 5,
-                    ),
-                    child: Text(
-                      'Edit Profile',
-                      style: TextStyle(
-                        color: Color(0xFF1976D2),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Logging Out...')),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color(0xFF1976D2),
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      shadowColor: Colors.blueAccent,
-                      elevation: 5,
-                    ),
-                    child: Text(
-                      'Log Out',
-                      style: TextStyle(
-                        color: Color(0xFF1976D2),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-
-class ProfileEnvelopeButton extends StatelessWidget {
-  final String title;
-  final VoidCallback onPressed;
-  final bool showContent;
-  final String content;
-
-  ProfileEnvelopeButton({
-    required this.title,
-    required this.onPressed,
-    required this.showContent,
-    required this.content,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 5,
-            spreadRadius: 1,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          ListTile(
-            leading: Icon(
-              Icons.mail_outline,
-              color: Colors.blueAccent, 
-              size: 30,
-            ),
-            title: Text(
-              title,
-              style: TextStyle(
-                color: Colors.blueAccent,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Roboto',
-              ),
-            ),
-            trailing: Icon(
-              showContent ? Icons.expand_less : Icons.expand_more,
-              color: Colors.blueAccent,
-            ),
-            onTap: onPressed,
-          ),
-          if (showContent)
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                content,
-                style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Roboto',
-                ),
-              ),
-            ),
-        ],
       ),
     );
   }

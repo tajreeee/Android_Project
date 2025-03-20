@@ -6,6 +6,7 @@ import 'supportPage.dart';
 import 'calendarPage.dart'; 
 import 'scholarshipList.dart'; 
 import 'universityList.dart'; 
+import 'visaAssistance.dart';  
 
 class HomePage extends StatelessWidget {
   @override
@@ -16,11 +17,10 @@ class HomePage extends StatelessWidget {
           
           Positioned.fill(
             child: Image.asset(
-              'assets/home.png', 
+              'assets/home.jpg',  
               fit: BoxFit.cover,
             ),
           ),
-          
           Center(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.0),
@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  
+                  // Welcome Text
                   Text(
                     'Welcome to the Home Page!',
                     style: TextStyle(
@@ -40,213 +40,72 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 50),
 
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => UniversityListPage()), 
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color.fromARGB(255, 5, 36, 60),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      'View Universities',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 5, 35, 59),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // Universities Button
+                  _buildButton(context, 'View Universities', UniversityListPage()),
 
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ScholarshipList()), 
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color.fromARGB(255, 5, 35, 59),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      'View Scholarships',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 5, 35, 59),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // Scholarships Button
+                  _buildButton(context, 'View Scholarships', ScholarshipList()),
 
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ViewMyProfilePage()), 
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color.fromARGB(255, 5, 36, 61),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      'View My Profile',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 5, 33, 55),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // My Profile Button
+                  _buildButton(context, 'View My Profile', ViewMyProfilePage(userEmail: '',)),
 
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => NotificationPage()), 
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color.fromARGB(255, 5, 34, 58),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      'View Notifications',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 5, 39, 68),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // Notifications Button
+                  _buildButton(context, 'View Notifications', NotificationPage()),
 
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => MentorListPage()), 
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color.fromARGB(255, 4, 41, 71),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      'Chat with Mentors',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 5, 31, 53),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // Mentors Button
+                  _buildButton(context, 'Chat with Mentors', MentorListPage()),
 
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SupportPage()), 
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color.fromARGB(255, 5, 33, 55),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      'Support',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 6, 34, 57),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
+                  // Support Button
+                  _buildButton(context, 'Support', SupportPage()),
 
-                  
-                  ElevatedButton(
-                    onPressed: () {
-                      
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => CalendarPage()), 
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Color.fromARGB(255, 6, 35, 59),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    child: Text(
-                      'Deadlines in Calendar',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 5, 34, 58),
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                      ),
-                    ),
-                  ),
+                  // Calendar Button
+                  _buildButton(context, 'Deadlines in Calendar', CalendarPage()),
+
+                  // Visa Assistance Button (New Button)
+                  _buildButton(context, 'Visa Assistance', VisaAssistancePage()),
                 ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  // A helper method to create buttons with consistent sizes and spacing
+  Widget _buildButton(BuildContext context, String label, Widget page) {
+    return Column(
+      children: [
+        SizedBox(height: 15),  // Add space between buttons
+        SizedBox(
+          width: double.infinity,  // Make buttons stretch to fill the width
+          height: 60,  // Fixed height for all buttons
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => page),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              foregroundColor: Color.fromARGB(255, 5, 36, 60),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+            child: Text(
+              label,
+              style: TextStyle(
+                color: Color.fromARGB(255, 5, 35, 59),
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
