@@ -4,6 +4,8 @@ import 'firebase_auth_services.dart';
 import 'login_page.dart';
 import 'form_container_widget.dart';
 import 'toast.dart';
+import 'user_profile_service.dart';
+
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -189,6 +191,7 @@ class _SignUpPageState extends State<SignUpPage> {
     });
 
     if (user != null) {
+      await saveUserProfile(user.uid, username, null);
       showToast(message: "User is successfully created");
       Navigator.pushNamed(context, "/home");
     } else {

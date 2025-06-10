@@ -39,6 +39,13 @@ dependencies:
   font_awesome_flutter: ^10.8.0
   video_player: ^2.9.3
   google_fonts: ^6.2.1
+  uuid: ^4.2.1
+  timeago: ^3.1.0
+  image_picker: ^0.8.7+5
+  path: ^1.9.0
+  rxdart: ^0.27.0
+  shared_preferences: ^2.2.2
+
 
 
     
@@ -83,6 +90,22 @@ flutter:
     - assets/step8.jpg
     - assets/blur.jpg
     - assets/splash2.jpg
+    - assets/photo1.jpg
+    - assets/photo2.jpg
+    - assets/photo3.png
+    - assets/photo4.png
+    - assets/ppg1.jpg
+    - assets/ppg2.jpg
+    - assets/ppg3.jpg
+    - assets/ppb1.jpg
+    - assets/ppb2.jpg
+    - assets/ppb3.jpg
+    - assets/ppb4.jpg
+    - assets/ppb5.jpg
+    - assets/ppb6.jpg
+    - assets/ppg4.jpg
+    
+
 
 
   # The following line ensures that the Material Icons font is
