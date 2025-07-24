@@ -1,3 +1,4 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'sign_up_page.dart';
@@ -32,16 +33,13 @@ class _LoginPageState extends State<LoginPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background Image with Blur Effect
           Image.asset(
             "assets/blur.jpg",
             fit: BoxFit.cover,
           ),
           Container(
-            color: Colors.black.withOpacity(0.4), // Dark overlay for better readability
+            color: Colors.black.withOpacity(0.4),
           ),
-
-          // Login Form
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -49,7 +47,6 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Welcome Text
                     Text(
                       "Welcome",
                       style: TextStyle(
@@ -67,16 +64,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     SizedBox(height: 40),
-
-                    // Email Input Field
                     _buildTextField(_emailController, "Email Address", false),
                     SizedBox(height: 15),
-
-                    // Password Input Field
                     _buildTextField(_passwordController, "Password", true),
                     SizedBox(height: 10),
-
-                    // Forgot Password
                     Align(
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
@@ -96,8 +87,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     SizedBox(height: 30),
-
-                    // Login Button
                     GestureDetector(
                       onTap: _signIn,
                       child: Container(
@@ -129,8 +118,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     SizedBox(height: 15),
-
-                    // Register Section
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -194,17 +181,43 @@ class _LoginPageState extends State<LoginPage> {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
 
-    User? user = await _auth.signInWithEmailAndPassword(email, password);
+    try {
+      User? user = await _auth.signInWithEmailAndPassword(email, password);
 
-    setState(() {
-      _isSigning = false;
-    });
+      setState(() {
+        _isSigning = false;
+      });
 
-    if (user != null) {
-      showToast(message: "User successfully signed in");
-      Navigator.pushNamed(context, "/home");
-    } else {
-      showToast(message: "Error signing in");
+      if (user != null) {
+        if (user.emailVerified) {
+          showToast(message: "User successfully signed in");
+          Navigator.pushNamed(context, "/home");
+        } else {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text("Email not verified"),
+              content: Text("Please verify your email before logging in."),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            ),
+          );
+        }
+      } else {
+        showToast(message: "Error signing in");
+      }
+    } catch (e) {
+      setState(() {
+        _isSigning = false;
+      });
+      showToast(message: "Login failed: ${e.toString()}");
     }
   }
 }

@@ -147,7 +147,7 @@ class UniversityListPage extends StatelessWidget {
                 ],
               ),
               onTap: () {
-                // You can navigate to a detailed page or other functionality here
+                
               },
             ),
           );

@@ -1,3 +1,4 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'firebase_auth_services.dart';
@@ -5,7 +6,6 @@ import 'login_page.dart';
 import 'form_container_widget.dart';
 import 'toast.dart';
 import 'user_profile_service.dart';
-
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -17,17 +17,13 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final FirebaseAuthService _auth = FirebaseAuthService();
 
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final _formData = _SignUpFormData(); // Form data object
 
   bool _isSigningUp = false;
 
   @override
   void dispose() {
-    _usernameController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
+    _formData.dispose(); // Dispose form controllers from class
     super.dispose();
   }
 
@@ -37,16 +33,13 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background Image with Blur Effect
           Image.asset(
             "assets/blur.jpg",
             fit: BoxFit.cover,
           ),
           Container(
-            color: Colors.black.withOpacity(0.4), // Dark overlay for better readability
+            color: Colors.black.withOpacity(0.4),
           ),
-          
-          // Sign-Up Form
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -54,7 +47,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Welcome Text
                     Text(
                       "Create Account",
                       style: TextStyle(
@@ -73,19 +65,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     SizedBox(height: 40),
 
-                    // Username Input Field
-                    _buildTextField(_usernameController, "Username", false),
+                    _buildTextField(_formData.usernameController, "Username", false),
                     SizedBox(height: 15),
-
-                    // Email Input Field
-                    _buildTextField(_emailController, "Email Address", false),
+                    _buildTextField(_formData.emailController, "Email Address", false),
                     SizedBox(height: 15),
-
-                    // Password Input Field
-                    _buildTextField(_passwordController, "Password", true),
+                    _buildTextField(_formData.passwordController, "Password", true),
                     SizedBox(height: 30),
 
-                    // Sign-Up Button
                     GestureDetector(
                       onTap: _signUp,
                       child: Container(
@@ -118,7 +104,6 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     SizedBox(height: 15),
 
-                    // Already have an account? Login
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -175,27 +160,79 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  void _signUp() async {
-    setState(() {
-      _isSigningUp = true;
-    });
+  bool isPasswordStrong(String password) {
+    if (password.length < 8) return false;
 
-    String username = _usernameController.text;
-    String email = _emailController.text;
-    String password = _passwordController.text;
+    final letterReg = RegExp(r'[A-Za-z]');
+    final numReg = RegExp(r'[0-9]');
+    final charReg = RegExp(r'[!@#$%^&*()_]');
+
+    return letterReg.hasMatch(password) && numReg.hasMatch(password) && charReg.hasMatch(password);
+  }
+
+  void _signUp() async {
+    String username = _formData.username;
+    String email = _formData.email;
+    String password = _formData.password;
+
+    if (!isPasswordStrong(password)) {
+      showToast(message: "Password must be at least 8 characters long");
+      return;
+    }
+
+    setState(() => _isSigningUp = true);
 
     User? user = await _auth.signUpWithEmailAndPassword(email, password);
 
-    setState(() {
-      _isSigningUp = false;
-    });
+    setState(() => _isSigningUp = false);
 
     if (user != null) {
+      if (!user.emailVerified) {
+        await user.sendEmailVerification();
+        showToast(message: "Verification email sent to $email");
+      }
+
       await saveUserProfile(user.uid, username, null);
-      showToast(message: "User is successfully created");
-      Navigator.pushNamed(context, "/home");
+
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text("Verify your email"),
+          content: Text("Please check your inbox and click the link to verify your account."),
+          actions: [
+            TextButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              child: Text("OK"),
+            ),
+          ],
+        ),
+      );
     } else {
       showToast(message: "Some error happened");
     }
   }
+}
+
+// New helper class inside this same file to fix data clump
+
+class _SignUpFormData {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  void dispose() {
+    usernameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+  String get username => usernameController.text.trim();
+  String get email => emailController.text.trim();
+  String get password => passwordController.text;
 }

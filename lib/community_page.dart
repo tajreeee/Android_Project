@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:html' as html; // for web file picker
+import 'dart:html' as html; 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // added for auth
+import 'package:firebase_auth/firebase_auth.dart'; 
 import 'community_service.dart';
 import 'post_model.dart';
 
@@ -18,12 +18,12 @@ class _CommunityPageState extends State<CommunityPage> {
   final CommunityService _communityService = CommunityService();
   final TextEditingController _contentController = TextEditingController();
 
-  String? _imageBase64; // base64 string for selected image (for preview & posting)
+  String? _imageBase64; 
 
   late String loggedInUsername;
   String loggedInAvatarUrl = 'https://i.pravatar.cc/150?img=3';
 
-  // Theme mode state: false = light, true = dark
+
   bool _isDarkTheme = false;
 
   @override
@@ -95,7 +95,7 @@ class _CommunityPageState extends State<CommunityPage> {
   Widget build(BuildContext context) {
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
 
-    // Define colors based on theme toggle
+    
     final backgroundColor = _isDarkTheme ? Colors.grey[900] : const Color(0xFFF3F4F6);
     final cardColor = _isDarkTheme ? Colors.grey[800] : Colors.white;
     final appBarColor = _isDarkTheme ? Colors.indigo.shade900 : Colors.indigo.shade600;

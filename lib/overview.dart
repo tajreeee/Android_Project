@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class OverviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Getting screen size using MediaQuery for responsive layout
+    
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -15,9 +15,9 @@ class OverviewPage extends StatelessWidget {
         ),
         backgroundColor: Color.fromARGB(255, 208, 217, 224),
       ),
-      body: SingleChildScrollView(  // Wrap the body in SingleChildScrollView for scrolling on small screens
+      body: SingleChildScrollView(  
         child: Padding(
-          padding: EdgeInsets.all(15.0), // Padding for better layout on small screens
+          padding: EdgeInsets.all(15.0), 
           child: Column(
             children: [
               _buildSectionCard(
@@ -90,7 +90,7 @@ class OverviewPage extends StatelessWidget {
 
   // Helper method to create a card for each step
   Widget _buildSectionCard(BuildContext context, String title, String image, String content) {
-    // Getting screen size using MediaQuery for better layout control
+    
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Card(
@@ -104,7 +104,7 @@ class OverviewPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Displaying the image and text
+           
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

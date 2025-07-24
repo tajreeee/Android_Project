@@ -45,6 +45,7 @@ dependencies:
   path: ^1.9.0
   rxdart: ^0.27.0
   shared_preferences: ^2.2.2
+  lottie: ^2.7.0
 
 
 
@@ -104,6 +105,8 @@ flutter:
     - assets/ppb5.jpg
     - assets/ppb6.jpg
     - assets/ppg4.jpg
+    - assets/intro1.json
+    - assets/intro2.json
     
 
 

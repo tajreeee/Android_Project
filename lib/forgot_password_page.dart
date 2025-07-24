@@ -17,16 +17,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background Image
+          
           Image.asset(
             "assets/blur.jpg",
             fit: BoxFit.cover,
           ),
           Container(
-            color: Colors.black.withOpacity(0.4), // Dark overlay for readability
+            color: Colors.black.withOpacity(0.4),
           ),
 
-          // Forgot Password Form
+          
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -34,13 +34,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Header Text with Back Arrow
+                    
                     Align(
                       alignment: Alignment.topLeft,
                       child: IconButton(
                         icon: Icon(Icons.arrow_back, color: Colors.white),
                         onPressed: () {
-                          Navigator.pop(context); // Go back to the previous page
+                          Navigator.pop(context); 
                         },
                       ),
                     ),
@@ -65,11 +65,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     ),
                     SizedBox(height: 40),
 
-                    // Email Input Field
+                    
                     _buildTextField(_emailController, "Email Address"),
                     SizedBox(height: 20),
 
-                    // Send Reset Link Button
+                    
                     GestureDetector(
                       onTap: _resetPassword,
                       child: Container(
@@ -138,7 +138,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     try {
       await _auth.sendPasswordResetEmail(email: email);
       showToast(message: "Password reset link sent! Check your email.");
-      Navigator.pop(context); // Go back to login page
+      Navigator.pop(context); 
     } catch (e) {
       showToast(message: "Error: ${e.toString()}");
     }

@@ -8,27 +8,11 @@ class VisaAssistancePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      extendBodyBehindAppBar: true, // Ensures the app bar is over the background image
+      appBar: _buildAppBar(context),
+      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          // Background Image
-          Positioned.fill(
-            child: Image.asset(
-              'assets/visa.jpg', 
-              fit: BoxFit.cover,
-            ),
-          ),
-          // Centered content
+          _buildBackground(),
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -36,34 +20,20 @@ class VisaAssistancePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _buildButton(
-                    context,
-                    'Overview of F1 Visa Process',
-                    Colors.blueAccent,
-                    () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => OverviewPage()));
-                    },
+                  VisaActionButton(
+                    text: 'Overview of F1 Visa Process',
+                    color: Colors.blueAccent,
+                    onPressed: () => _navigateToPage(context, OverviewPage()),
                   ),
-                  SizedBox(height: 20),
-                  _buildButton(
-                    context,
-                    'Documents Required',
-                    Colors.greenAccent,
-                    () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => DocumentPage()));
-                    },
+                  VisaActionButton(
+                    text: 'Documents Required',
+                    color: Colors.greenAccent,
+                    onPressed: () => _navigateToPage(context, DocumentPage()),
                   ),
-                  SizedBox(height: 20),
-                  _buildButton(
-                    context,
-                    'Book Visa Appointment',
-                    Colors.orangeAccent,
-                    () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => AppointmentPage()));
-                    },
+                  VisaActionButton(
+                    text: 'Book Visa Appointment',
+                    color: Colors.orangeAccent,
+                    onPressed: () => _navigateToPage(context, AppointmentPage()),
                   ),
                 ],
               ),
@@ -74,19 +44,53 @@ class VisaAssistancePage extends StatelessWidget {
     );
   }
 
-  // Button widget
-  Widget _buildButton(
-    BuildContext context,
-    String text,
-    Color color,
-    Function onPressed,
-  ) {
+  AppBar _buildAppBar(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back, color: Colors.white),
+        onPressed: () => Navigator.pop(context),
+      ),
+    );
+  }
+
+  Widget _buildBackground() {
+    return Positioned.fill(
+      child: Image.asset(
+        'assets/visa.jpg',
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  void _navigateToPage(BuildContext context, Widget page) {
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+  }
+}
+
+
+class VisaActionButton extends StatelessWidget {
+  final String text;
+  final Color color;
+  final VoidCallback onPressed;
+
+  const VisaActionButton({
+    super.key,
+    required this.text,
+    required this.color,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      width: double.infinity, // Makes it fill the width of the screen
+      width: double.infinity,
       height: 60,
-      margin: EdgeInsets.symmetric(vertical: 10), // Adds spacing between buttons
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: ElevatedButton(
-        onPressed: () => onPressed(),
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           shape: RoundedRectangleBorder(
@@ -95,7 +99,7 @@ class VisaAssistancePage extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.white,

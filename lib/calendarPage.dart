@@ -9,12 +9,12 @@ class CalendarPage extends StatefulWidget {
 class _CalendarPageState extends State<CalendarPage> {
   
   final Map<DateTime, String> _importantDates = {
-    DateTime(2025, 2, 10): "Application Deadline for XYZ University",
-    DateTime(2025, 2, 15): "Scholarship Deadline for ABC Scholarship",
-    DateTime(2025, 2, 20): "Last Date to Submit Application for DEF University",
-    DateTime(2025, 3, 5): "Early Bird Application for GHI University",
-    DateTime(2025, 3, 18): "Final Submission Deadline for JKL Scholarship",
-    DateTime(2025, 3, 25): "Application Deadline for MNO University",
+    DateTime(2025, 6, 10): "Application Deadline for Duke University",
+    DateTime(2025, 6, 15): "Scholarship Deadline for AAUW International Fellowship",
+    DateTime(2025, 7, 20): "Last Date to Submit Application for DEF University",
+    DateTime(2025, 7, 5): "Early Bird Application for GHI University",
+    DateTime(2025, 5, 18): "Final Submission Deadline for JKL Scholarship",
+    DateTime(2025, 8, 25): "Application Deadline for MNO University",
     
   };
 
